@@ -33,6 +33,11 @@ REST_FRAMEWORK = {
         'PAGE_SIZE' : 10,
         }
 
+#CORS settings
+CORS_ORIGIN_WHITELIST = [
+        "http://localhost:3000",
+        ]
+
 
 # Application definition
 
@@ -43,8 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'rest_api',
+    'rest_framework', #For the rest framework
+    'rest_api', #for access to custom models. 
+    'corsheaders', #For Cross Origin Resource Sharing - requires server to include specific HTTP headers. 
     ]
 
 MIDDLEWARE = [
@@ -55,6 +61,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', #For CORS
+    'django.middleware.common.CommonMiddleware', #New, Required for CORS
 ]
 
 ROOT_URLCONF = 'cado_django.urls'

@@ -25,6 +25,6 @@ router.register(r'cados', views.CadoViewSet)
 router.register(r'declines', views.DeclineViewSet)
 
 urlpatterns = [
-    path(r'', include(router.urls)),
+    path(r'api/', include(router.urls)),
     path(r'api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
