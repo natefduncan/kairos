@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.urls import include, path
 from rest_framework import routers
-from cado_django.rest_api import views
+from rest_api import views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'batches', views.BatchViewSet)
+router.register(r'cados', views.CadoViewSet)
+router.register(r'declines', views.DeclineViewSet)
 
 urlpatterns = [
     path(r'', include(router.urls)),
