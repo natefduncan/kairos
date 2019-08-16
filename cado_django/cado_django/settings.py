@@ -35,6 +35,10 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication']
         }
 
+AUTHENTICATION_BACKENDS = (
+   "django.contrib.auth.backends.ModelBackend",
+  "allauth.account.auth_backends.AuthenticationBackend",
+)
 #CORS settings
 CORS_ORIGIN_WHITELIST = [
         "http://localhost:3000",
@@ -43,7 +47,9 @@ CORS_ORIGIN_WHITELIST = [
 AUTH_USER_MODEL = 'rest_api.CustomUser'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True   
+ACCOUNT_USERNAME_REQUIRED = False
 SITE_ID = 1
 
 # Application definition
