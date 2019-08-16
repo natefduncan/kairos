@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 REST_FRAMEWORK = {
         'DEFAULT_PAGINATION_CLASS' : 'rest_framework.pagination.PageNumberPagination', 
         'PAGE_SIZE' : 10,
+        'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication']
         }
 
 #CORS settings
@@ -38,6 +40,11 @@ CORS_ORIGIN_WHITELIST = [
         "http://localhost:3000",
         ]
 
+AUTH_USER_MODEL = 'rest_api.CustomUser'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+SITE_ID = 1
 
 # Application definition
 
@@ -50,7 +57,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', #For the rest framework
     'rest_api', #for access to custom models. 
-    'corsheaders', #For Cross Origin Resource Sharing - requires server to include specific HTTP headers. 
+    'rest_auth', 
+    'allauth', #For registration
+    'allauth.account',
+    'django.contrib.sites', #
+    'rest_auth.registration',
+    'rest_framework.authtoken', 
+    'corsheaders', #For Cross Origin Resource Sharing - requires server to include specific HTTP headers.
     ]
 
 MIDDLEWARE = [

@@ -1,8 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+
+class CustomUser(AbstractUser):
+    name = models.CharField(blank=True, max_length=255)
+    
+    def __str__(self):
+        return self.email
 
 # Create your models here.
 class Batch(models.Model):
-    url = models.CharField(max_length=255)
     batch_id = models.IntegerField()
     upload_date = models.DateTimeField(auto_now_add=True)
     purchase_date = models.DateField() #datetime.datetime instance
@@ -13,7 +19,6 @@ class Batch(models.Model):
     quantity = models.IntegerField()
 
 class Cado(models.Model):
-    url = models.CharField(max_length=255)
     batch_id = models.IntegerField()
     cado_id = models.IntegerField()
     upload_date = models.DateTimeField(auto_now_add=True)
@@ -24,7 +29,6 @@ class Cado(models.Model):
     is_projected = models.BooleanField(default=False)
     
 class Decline(models.Model):
-    url = models.CharField(max_length=255)
     cado_id = models.IntegerField()
     date = models.DateTimeField()
     projected_dense = models.DecimalField(decimal_places=2,max_digits=10)

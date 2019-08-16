@@ -1,21 +1,23 @@
-from django.contrib.auth.models import User, Group
-from .models import Batch, Cado, Decline
-from rest_framework import viewsets
-from .serializers import UserSerializer, GroupSerializer, BatchSerializer, CadoSerializer, DeclineSerializer
+#Base imports
+from .models import Batch, Cado, Decline, CustomUser
+from .serializers import BatchSerializer, CadoSerializer, DeclineSerializer, CustomUserSerializer
 
-class UserViewSet(viewsets.ModelViewSet):
+#Authentication
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import viewsets
+
+
+#Model View Sets
+class CustomUserViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
     """
     API endpoint that allows users to be viewed or edited
     """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+    queryset = CustomUser.objects.all().order_by('-date_joined')
+    serializer_class = CustomUserSerializer
 
 class BatchViewSet(viewsets.ModelViewSet):
     """

@@ -16,15 +16,17 @@ Including another URLconf
 from django.urls import include, path
 from rest_framework import routers
 from rest_api import views
+from django.contrib import admin
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+router.register(r'users', views.CustomUserViewSet)
 router.register(r'batches', views.BatchViewSet)
 router.register(r'cados', views.CadoViewSet)
 router.register(r'declines', views.DeclineViewSet)
 
 urlpatterns = [
-    path(r'api/', include(router.urls)),
-    path(r'api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path(r'api/v1/', include(router.urls)),
+    path(r'api/v1/rest-auth/', include('rest_auth.urls')),
+    path(r'api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
+    path(r'admin/', admin.site.urls),
 ]
