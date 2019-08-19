@@ -1,8 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+#Want this to eventually change to save First and Last name. 
+#https://django-rest-auth.readthedocs.io/en/latest/configuration.html
 class CustomUser(AbstractUser):
-    name = models.CharField(blank=True, max_length=255)
     
     def __str__(self):
         return self.email
