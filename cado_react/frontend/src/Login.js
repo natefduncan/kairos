@@ -1,6 +1,7 @@
 //Import axios and React. 
 import React, { Component } from 'react';
 import axios from 'axios';
+import Userhome from './Userhome';
 
 //Import themes. 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -15,8 +16,9 @@ constructor(props){
   super(props);
   this.state={
   username:'',
-  password:''
-  };
+  password:'',
+  key:'',
+  }
  }
  
 //Handle Click Event by attempting to authenticate. 
@@ -33,11 +35,7 @@ axios.post(login_url, payload)
           console.log("Login successfull");
           console.log(response.data.key)
           var uploadScreen=[];
-          /*
-          uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
-          self.props.appContext.setState({loginPage:[],uploadScreen:uploadScreen})
-          */
-          uploadScreen.push(<div> LOGGED IN </div>)
+          uploadScreen.push(<Userhome/>)
       } else if(response.status === 204) {
           console.log("Username password do not match");
           alert("Username/password do not match")

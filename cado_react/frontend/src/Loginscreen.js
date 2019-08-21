@@ -29,13 +29,9 @@ class Loginscreen extends Component {
     //Add the login box to the login screen variable. 
     loginscreen.push(<Login parentContext={this} appContext={this.props.parentContext}/>);
     
-    //Create the login message variable. 
-    var loginmessage = "Not registered yet, Register Now";
-    
     //Set the state of the login screen and the message. 
     this.setState({
                   loginscreen:loginscreen,
-                  loginmessage:loginmessage
                  })
 //End of Component Will Mount
   }
@@ -47,7 +43,6 @@ class Loginscreen extends Component {
       <div className="loginscreen">
         {this.state.loginscreen}
         <div>
-          {this.state.loginmessage}
           <MuiThemeProvider>
             <div>
                <RaisedButton label={this.state.buttonLabel} primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
