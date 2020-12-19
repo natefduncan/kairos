@@ -1,1 +1,3 @@
 /venv/
+/kairos/static/node_modules
+/.env

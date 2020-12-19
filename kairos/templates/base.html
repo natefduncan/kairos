@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--Title Block-->
+        <title>{% block title %}{% endblock %}</title>
+
+        <!--Header Block-->
+        {% block header %}{% endblock %}
+
+        <!--CSS Bundle-->
+        <link rel="stylesheet" href="{{url_for('static', filename='bundle.min.css')}}" type="text/css"/>
+    </head>
+    <body>
+        <!--Body Block-->
+        {% block body %}{% endblock %}
+    </body>
+</html>
