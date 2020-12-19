@@ -1,0 +1,25 @@
+services:
+    web:
+      build: .
+      command: ["python", "kairos/app.py"]
+      volumes:
+          - .:/kairos
+      ports:
+          - "5000:5000"
+      links:
+          - db
+    db:
+      image: mariadb
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: password
+      logging:
+        driver: none 
+
+    adminer:
+      image: adminer
+      restart: always
+      ports:
+        - 8080:8080
+      logging:
+        driver: none

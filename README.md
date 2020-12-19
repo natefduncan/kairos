@@ -1,3 +1,4 @@
-# autocado
+# Kairos
 
-Django REST backend + React.js SPA frontend
+Flask + Maria Db + Bulma + Docker
+Black + iSort 

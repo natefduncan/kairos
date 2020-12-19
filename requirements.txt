@@ -1,7 +1,6 @@
-django
-djangorestframework
-django-cors-headers
-django-rest-knox
-django-filter
-django-rest-auth
-django-allauth
+flask==1.1.2
+flask-sqlalchemy==2.4.4
+flask-marshmallow==0.14.0
+marshmallow-sqlalchemy==0.24.1
+isort==5.6.4
+black
