@@ -1,6 +1,6 @@
 {% extends 'user_base.html' %}
 
-{% block title %} Home {% endblock %}
+{% block title %} Dashboard {% endblock %}
 
 {% block body %}
 <!--Side Menu-->
@@ -11,7 +11,7 @@
             General
         </p>
         <ul class="menu-list">
-            <li><a href="{{url_for('core.dashboard')}}">Dashboard</a></li>
+            <li><a href="{{url_for('core.dashboard')}}" class="is-active">Dashboard</a></li>
             <li><a href="{{url_for('core.orders')}}">Orders</a></li>
             <li><a href="{{url_for('core.maps')}}">Maps</a></li>
         </ul>
@@ -26,8 +26,11 @@
     </div>
     
     <div class="column">
-        <!--Body Block HERE-->
+        <div id="dashboard_chart"></div>
     </div>
 </div>
+{% endblock %}
 
+{% block script %}
+    
 {% endblock %}

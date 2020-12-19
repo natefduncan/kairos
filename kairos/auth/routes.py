@@ -58,4 +58,6 @@ def login():
 
 @bp.route("/logout", methods=["GET", "POST"])
 def logout():
-    return redirect(url_for("login"))
+    response = redirect(url_for("auth.login"))
+    response.delete_cookie(key="token")
+    return response

@@ -24,9 +24,14 @@ def init_app():
             css = Bundle(
                 "node_modules/bulma/css/bulma.min.css", filters="cssmin", output="bundle.min.css"
             )
+            
+            js = Bundle(
+                "node_modules/d3/dist/d3.js", "node_modules/d3-scale/dist/d3-scale.js", filters="jsmin", output="bundle.min.js"
+            )
 
             assets.register("main_css", css)
+            assets.register("main_js", js)
             css.build()
-
+            js.build()
 
         return app

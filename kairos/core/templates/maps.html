@@ -1,6 +1,6 @@
 {% extends 'user_base.html' %}
 
-{% block title %} Home {% endblock %}
+{% block title %} Maps {% endblock %}
 
 {% block body %}
 <!--Side Menu-->
@@ -11,9 +11,9 @@
             General
         </p>
         <ul class="menu-list">
-            <li><a href="{{url_for('core.dashboard')}}">Dashboard</a></li>
+            <li><a href="{{url_for('core.dashboard')}}" >Dashboard</a></li>
             <li><a href="{{url_for('core.orders')}}">Orders</a></li>
-            <li><a href="{{url_for('core.maps')}}">Maps</a></li>
+            <li><a href="{{url_for('core.maps')}}" class="is-active">Maps</a></li>
         </ul>
         <p class="menu-label">
             Subscription
@@ -29,5 +29,4 @@
         <!--Body Block HERE-->
     </div>
 </div>
-
 {% endblock %}

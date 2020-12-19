@@ -7,11 +7,14 @@
         <!--Title Block-->
         <title>{% block title %}{% endblock %}</title>
 
-        <!--Header Block-->
-        {% block header %}{% endblock %}
+        <!--JS Bundle-->
+        <script src="{{url_for('static', filename='bundle.min.js')}}" type="text/css"></script>
 
         <!--CSS Bundle-->
         <link rel="stylesheet" href="{{url_for('static', filename='bundle.min.css')}}" type="text/css"/>
+
+        <!--Header Block-->
+        {% block header %}{% endblock %} 
     </head>
     <body>
         <div class="section">
