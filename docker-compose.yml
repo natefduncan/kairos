@@ -1,7 +1,7 @@
 services:
     web:
       build: .
-      command: ["python", "kairos/app.py"]
+      command: ["python", "app.py"]
       volumes:
           - .:/kairos
       ports:

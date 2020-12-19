@@ -14,7 +14,19 @@
         <link rel="stylesheet" href="{{url_for('static', filename='bundle.min.css')}}" type="text/css"/>
     </head>
     <body>
-        <!--Body Block-->
-        {% block body %}{% endblock %}
+        <div class="section">
+            <!--Messages-->
+            {% if message %}
+                <article class="message is-info">
+                <div class="message-body">
+                    <p>{{message}}</p>
+                </div>
+                </article>
+            {% endif %}   
+
+            <!--Body Block-->
+            {% block body %}{% endblock %}
+        </div>
+
     </body>
 </html>

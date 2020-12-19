@@ -1,5 +1,6 @@
-from models import *
 from marshmallow_sqlalchemy import SQLAlchemySchema
+from models import *
+
 
 class UserSchema(SQLAlchemyAutoSchema):
     class Meta:

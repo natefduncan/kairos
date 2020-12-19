@@ -1,3 +1,5 @@
 /venv/
 /kairos/static/node_modules
-/.env
+.env
+.webassets-cache
+__pycache__

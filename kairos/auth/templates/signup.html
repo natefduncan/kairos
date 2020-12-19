@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %} Signup {% endblock %}
+
+{% block body %}
+  <div class="columns is-centered">
+    <div class="column is-one-third">
+      <form method="post">
+        <div class="field">
+          <label class="label">First Name</label>
+          <div class="control">
+            <input class="input" type="text" name="first_name"/>
+          </div>
+        </div>
+        
+        <div class="field">
+            <label class="label">Last Name</label>
+            <div class="control">
+              <input class="input" type="text" name="last_name"/>
+            </div>
+          </div>
+        
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <input class="input" type="email" name="email"/>
+          </div>
+        </div>
+        
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input" type="password" name="password1"/>
+          </div>
+        </div>
+        
+        <div class="field">
+          <label class="label">Confirm Password</label>
+          <div class="control">
+            <input class="input" type="password" name="password2"/>
+          </div>
+        </div>
+      
+        <button type="submit" class="button is-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
